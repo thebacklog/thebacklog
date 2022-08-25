@@ -1,0 +1,6 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "The Backlog" %></h1>
+  <p>Developer tools for a more civilized age.</p>
+</section>
+
+<p><%= link "Stories", to: Routes.story_path(@conn, :index) %></p>
