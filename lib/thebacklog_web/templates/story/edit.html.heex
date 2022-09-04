@@ -1,5 +1,5 @@
-<h1>Edit Story</h1>
-
-<%= render "form.html", Map.put(assigns, :action, Routes.story_path(@conn, :update, @story)) %>
+<div class="stories">
+	<%= render "form.html", Map.put(assigns, :action, Routes.story_path(@conn, :update, @story)) %>
+</div>
 
 <p><%= link "Back", to: Routes.story_path(@conn, :index) %></p>

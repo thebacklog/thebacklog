@@ -1,26 +1,17 @@
-<h1>Listing Stories</h1>
+<div class="stories">
+	<%= for story <- @stories do %>
+		<div class="card">
+			<pre class="content">
+				<%= story.body %>
+			</pre>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
+			<div class="controls">
+				<span><%= link "Show", to: Routes.story_path(@conn, :show, story) %></span>
+				<span><%= link "Edit", to: Routes.story_path(@conn, :edit, story) %></span>
+				<span><%= link "Delete", to: Routes.story_path(@conn, :delete, story), method: :delete, data: [confirm: "Are you sure?"] %></span>
+			</div>
+		</div>
+	<% end %>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for story <- @stories do %>
-    <tr>
-      <td><%= story.body %></td>
-
-      <td>
-        <span><%= link "Show", to: Routes.story_path(@conn, :show, story) %></span>
-        <span><%= link "Edit", to: Routes.story_path(@conn, :edit, story) %></span>
-        <span><%= link "Delete", to: Routes.story_path(@conn, :delete, story), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<p><%= link "New Story", to: Routes.story_path(@conn, :new) %></p>
+	<%= link "+", to: Routes.story_path(@conn, :new), class: "button new" %>
+</div>

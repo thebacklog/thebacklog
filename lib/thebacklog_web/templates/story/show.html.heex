@@ -1,13 +1,12 @@
-<h1>Show Story</h1>
+<div class="stories">
+	<div class="card">
+		<pre class="content">
+			<%= @story.body %>
+		</pre>
 
-<ul>
-
-  <li>
-    <strong>Body:</strong>
-    <%= @story.body %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.story_path(@conn, :edit, @story) %></span> |
-<span><%= link "Back", to: Routes.story_path(@conn, :index) %></span>
+		<div class="controls">
+			<span><%= link "Edit", to: Routes.story_path(@conn, :edit, @story) %></span>
+			<span><%= link "Delete", to: Routes.story_path(@conn, :delete, @story), method: :delete, data: [confirm: "Are you sure?"] %></span>
+		</div>
+	</div>
+</div>
